@@ -6,25 +6,38 @@ import styles from './page.module.css';
 
 const Page = () => {
   const [selectedSounds, setSelectedSounds] = useState([]);
+  const [selectedPlayType, setSelectedPlayType] = useState('Listen');
 
   const sounds = ['drums 1', 'drums 2', 'drums 3', 'drums 4', 'bass 1', 'bass 2', 'trombone 1', 'trombone 2', 'symbols', 'tamborine', 'trumpet', 'guitar', 'vocals 1', 'vocals 2', 'vocals 3', 'vocals 4'];
 
   const handleClick = (e) => {
     const selectedSound = e.target.value;
 
-    if (selectedSounds.includes(selectedSound)) {
-      const revisedSelectedSounds = selectedSounds.filter((sound) => sound != selectedSound);
-      setSelectedSounds(revisedSelectedSounds)
+    if (selectedPlayType === 'Listen') {
+      setSelectedSounds(selectedSound);
     } else {
-      setSelectedSounds([selectedSound, ...selectedSounds])
+      if (selectedSounds.includes(selectedSound)) {
+        const revisedSelectedSounds = selectedSounds.filter((sound) => sound != selectedSound);
+        setSelectedSounds(revisedSelectedSounds)
+      } else {
+        setSelectedSounds([selectedSound, ...selectedSounds])
+      }
     }
+  };
+
+  const handleStop = () => {
+    console.log('stop recording');
   };
 
   return (
     <main className={styles.main}>
       <h1>Create my Samba mix!</h1>
       <h2>Start by trying out the sounds</h2>
-      <Toggle />
+      <Toggle 
+        selectedPlayType={selectedPlayType}
+        setSelectedPlayType={setSelectedPlayType}
+        setSelectedSounds={setSelectedSounds}
+      />
       <div className={styles.soundsContainer}>
         {sounds.map((sound) => {
           return <button
@@ -35,6 +48,11 @@ const Page = () => {
           >{sound}</button>
         })}
       </div>
+      {selectedPlayType === 'Record' && <button
+        type="button"
+        className={styles.stop}
+        onClick={handleStop}
+      >Stop recording</button>}
     </main>
   );
 }

@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import styles from './toggle.module.css';
 
-const Toggle = () => {
-  const [selectedPlayType, setSelectedPlayType] = useState('Listen');
-
+const Toggle = ({ selectedPlayType, setSelectedPlayType, setSelectedSounds }) => {
   const buttonTypes = ['Listen', 'Record'];
+
+  const handleClick = (e) => {
+    setSelectedPlayType(e.target.value);
+    setSelectedSounds([]);
+  }
 
   return (
     <div className={styles.container}>
@@ -16,15 +18,23 @@ const Toggle = () => {
               key={button}
               type="button"
               className={`${styles.button} ${selectedPlayType === button ? styles.active : ''}`}
-              onClick={() => setSelectedPlayType(button)}
+              value={button}
+              onClick={(e) => handleClick(e)}
             >
               {button}
             </button>
           )
         })}
       </div>
+      {selectedPlayType === 'Record' && <p>Recording...</p>}
     </div>
   );
+};
+
+Toggle.propTypes = {
+  selectedPlayType: PropTypes.string.isRequired,
+  setSelectedPlayType: PropTypes.func.isRequired,
+  setSelectedSounds: PropTypes.func.isRequired
 };
 
 export { Toggle };

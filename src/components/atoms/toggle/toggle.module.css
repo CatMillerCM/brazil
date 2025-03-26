@@ -1,6 +1,9 @@
+.container {
+  min-height: 6rem;
+}
+
 .toggle {
   border-radius: 20px;
-  padding: 1rem;
 }
 
 .button {
