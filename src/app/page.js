@@ -102,8 +102,31 @@ const Page = () => {
     setRecordedAudio(recording);
   };
 
-  const handleStop = () => {
-    console.log('stop recording');
+  const downloadAudio = () => {
+    if (!recordedAudio) return;
+
+    const url = URL.createObjectURL(recordedAudio);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'samba_mix.wav';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+  
+  const shareAudio = () => {
+    if (!recordedAudio) return;
+
+    const audioFile = new File([recordedAudio], 'samba_mix.wav', { type: 'audio/wav' });
+  
+    if (navigator.canShare && navigator.canShare({ files: [audioFile] })) {
+      navigator.share({
+        files: [audioFile],
+        title: 'My Samba Mix',
+        text: 'Check out this cool audio mix I made!',
+      })
+    }
   };
 
   return (
@@ -131,9 +154,13 @@ const Page = () => {
             </button>
           ))}
         </div>
-            onClick={(e) => handleClick(e)}
-          >{sound}</button>
-        })}
+        {recordedAudio ? (
+          <audio controls src={URL.createObjectURL(recordedAudio)} />
+        ) :
+          <div className={styles.noAudio}></div>
+        }
+        <button type="button" className={`${styles.button} ${styles.download}`} onClick={downloadAudio} disabled={!recordedAudio}>Download my mix</button>
+        <button type="button" className={`${styles.button} ${styles.share}`} onClick={shareAudio} disabled={!recordedAudio}>Share my mix</button>
       </div>
     </main>
   );
