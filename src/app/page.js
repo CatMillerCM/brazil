@@ -165,6 +165,10 @@ const Page = () => {
         <button type="button" className={`${styles.button} ${styles.download}`} onClick={downloadAudio} disabled={!recordedAudio}>Download my mix</button>
         <button type="button" className={`${styles.button} ${styles.share}`} onClick={shareAudio} disabled={!recordedAudio}>Share my mix</button>
       </div>
+      <div className={styles.dancers}>
+        <Image src={dancer1} alt="Silhouette of a woman dancing wearing carnival attire" />
+        <Image src={dancer2} alt="Silhouette of a woman dancing wearing carnival attire" />
+      </div>
     </main>
   );
 };

@@ -89,6 +89,22 @@
   animation: none;
 }
 
+.dancers {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.dancers img {
+  height: 17rem;
+  width: auto;
+  margin-left: 1rem;
+}
+
 @keyframes rotate {
   100% {
     transform: rotate(360deg);
@@ -113,5 +129,14 @@
   .soundsContainer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  .dancers {
+    width: 65%;
+  }
+  
+  .dancers img {
+    height: 20rem;
+    margin-left: 2.5rem;
   }
 }
