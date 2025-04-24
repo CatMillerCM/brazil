@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import * as Tone from 'tone';
+import { brazilLoader, dancer1, dancer2, dancer3 } from '@/assets';
 import styles from './page.module.css';
 
 const Page = () => {
@@ -151,7 +153,7 @@ const Page = () => {
               onClick={handleClick}
               disabled={!isReady}
             >
-              {isReady ? sound : '...'}
+              {isReady ? sound : <Image className={styles.loader} src={brazilLoader} alt="Brazilian flag spinner loader"/>}
             </button>
           ))}
         </div>
