@@ -1,9 +1,18 @@
 :root {
   /* Colour Palette */
+  --color-brazilian-green: #009C3B;
+  --color-brazilian-yellow: #FFDF00;
+  --color-brazilian-blue: #002776;
+  --color-white: #FFFFFF;
 }
 
 body {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  color: var(--color-brazilian-blue);
+  margin: 0;
 }
