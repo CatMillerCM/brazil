@@ -3,8 +3,9 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import * as Tone from 'tone';
-import { brazilLoader, dancer1, dancer2, dancer3 } from '@/assets';
+import { brazilLoader, dancer1, dancer2 } from '@/assets';
 import styles from './page.module.css';
+import { ResultActionButtons } from '@/components/molecules/result-action-buttons';
 
 const Page = () => {
   const [selectedSounds, setSelectedSounds] = useState([]);
@@ -104,33 +105,6 @@ const Page = () => {
     setRecordedAudio(recording);
   };
 
-  const downloadAudio = () => {
-    if (!recordedAudio) return;
-
-    const url = URL.createObjectURL(recordedAudio);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'samba_mix.wav';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
-  
-  const shareAudio = () => {
-    if (!recordedAudio) return;
-
-    const audioFile = new File([recordedAudio], 'samba_mix.wav', { type: 'audio/wav' });
-  
-    if (navigator.canShare && navigator.canShare({ files: [audioFile] })) {
-      navigator.share({
-        files: [audioFile],
-        title: 'My Samba Mix',
-        text: 'Check out this cool audio mix I made!',
-      })
-    }
-  };
-
   return (
     <main className={styles.main}>
       <div className={styles.diamond}></div>
@@ -162,8 +136,7 @@ const Page = () => {
         ) :
           <div className={styles.noAudio}></div>
         }
-        <button type="button" className={`${styles.button} ${styles.download}`} onClick={downloadAudio} disabled={!recordedAudio}>Download my mix</button>
-        <button type="button" className={`${styles.button} ${styles.share}`} onClick={shareAudio} disabled={!recordedAudio}>Share my mix</button>
+        <ResultActionButtons recordedAudio={recordedAudio} />
       </div>
       <div className={styles.dancers}>
         <Image src={dancer1} alt="Silhouette of a woman dancing wearing carnival attire" />
