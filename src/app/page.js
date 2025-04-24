@@ -131,6 +131,7 @@ const Page = () => {
 
   return (
     <main className={styles.main}>
+      <div className={styles.diamond}></div>
       <div className={styles.mainContent}>
         <div className={styles.titles}>
           <h1>Create my Samba mix!</h1>
