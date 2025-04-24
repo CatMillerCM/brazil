@@ -19,9 +19,10 @@ const Page = () => {
     'carioca 1', 'chocalho de platinela 1', 'drums 1', 'pandeiro 1', 'pandeiro 2', 'tantan 1',
   ];
 
-  const [selectedPlayType, setSelectedPlayType] = useState('Listen');
-
-  const sounds = ['drums 1', 'drums 2', 'drums 3', 'drums 4', 'bass 1', 'bass 2', 'trombone 1', 'trombone 2', 'symbols', 'tamborine', 'trumpet', 'guitar', 'vocals 1', 'vocals 2', 'vocals 3', 'vocals 4'];
+  useEffect(() => {
+    gainRef.current = new Tone.Gain().toDestination();
+    setIsReady(true);
+  }, []);  
 
   const stopAllSounds = () => {
     Object.values(playersRef.current).forEach((player) => player.stop());
@@ -39,7 +40,7 @@ const Page = () => {
     });
     
     await Tone.loaded();
-  const handleClick = (e) => {
+    player.connect(gainRef.current);
     playersRef.current[selectedSound] = player;
   
     return player;
@@ -86,10 +87,7 @@ const Page = () => {
   
     const recorder = new Tone.Recorder();
     recorderRef.current = recorder;
-        setSelectedSounds([selectedSound, ...selectedSounds])
-      }
-    }
-  };
+    gainRef.current.connect(recorder);
   
     recorder.start();
     setIsRecording(true);
