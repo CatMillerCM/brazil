@@ -11,14 +11,26 @@ const Sounds = ({
   isReady,
 }) => {
   const sounds = [
-    'carioca 1', 'chocalho de platinela 1', 'drums 1', 'pandeiro 1', 'pandeiro 2', 'tantan 1',
-    'carioca 1', 'chocalho de platinela 1', 'drums 1', 'pandeiro 1', 'pandeiro 2', 'tantan 1',
+    'Agogo',
+    'Caixa',
+    'Cavaquinho',
+    'Chocalho de Platinela',
+    'Cuica',
+    'Ganza',
+    'Pandeiro',
+    'Repinique',
+    'Surdo',
+    'Tamborim',
+    'Tantan',
+    'Trumpet',
+    // 'Whistle',
   ];
   
   return (
     <div className={styles.soundsContainer}>
       {sounds.map((sound) => (
         <Sound
+          key={sound}
           sound={sound}
           isRecording={isRecording}
           selectedSounds={selectedSounds}
