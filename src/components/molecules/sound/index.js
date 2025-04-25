@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import Image from 'next/image';
-import { brazilLoader } from '@/assets';
+import { Loader } from '@/components/atoms/loader';
 import styles from './sound.module.css';
 
 const Sound = ({ sound, selectedSounds, onClick, isReady }) => {
@@ -13,7 +12,7 @@ const Sound = ({ sound, selectedSounds, onClick, isReady }) => {
       onClick={onClick}
       disabled={!isReady}
     >
-      {isReady ? sound : <Image className={styles.loader} src={brazilLoader} alt="Brazilian flag spinner loader"/>}
+      {isReady ? sound : <Loader />}
     </button>
   )
 };

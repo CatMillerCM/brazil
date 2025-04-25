@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
 import * as Tone from 'tone';
+import { useState, useRef, useEffect } from 'react';
+import { Sounds } from '@/components/organisms/sounds';
 import { ResultActionButtons } from '@/components/molecules/result-action-buttons';
-import styles from './page.module.css';
 import { Dancers } from '@/components/molecules/dancers';
-import { Sounds } from '@/components/molecules/sounds';
+import styles from './page.module.css';
 
 const Page = () => {
   const [selectedSounds, setSelectedSounds] = useState([]);

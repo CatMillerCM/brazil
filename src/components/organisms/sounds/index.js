@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Sound } from '@/components/atoms/sound';
+import { Sound } from '@/components/molecules/sound';
 import styles from './sounds.module.css';
 
 const Sounds = ({ selectedSounds, onClick, isReady }) => {
