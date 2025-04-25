@@ -1,12 +1,11 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
 import * as Tone from 'tone';
-import { brazilLoader } from '@/assets';
 import { ResultActionButtons } from '@/components/molecules/result-action-buttons';
 import styles from './page.module.css';
 import { Dancers } from '@/components/molecules/dancers';
+import { Sound } from '@/components/atoms/sound';
 
 const Page = () => {
   const [selectedSounds, setSelectedSounds] = useState([]);
@@ -26,12 +25,7 @@ const Page = () => {
   useEffect(() => {
     gainRef.current = new Tone.Gain().toDestination();
     setIsReady(true);
-  }, []);  
-
-  const stopAllSounds = () => {
-    Object.values(playersRef.current).forEach((player) => player.stop());
-    setSelectedSounds([]);
-  };
+  }, []);
 
   const createPlayer = async (selectedSound) => {
     const fileName = selectedSound.toLowerCase().replace(/ /g, '-') + '.wav';
@@ -49,7 +43,7 @@ const Page = () => {
   
     return player;
   };
-
+  
   const handleClick = async (e) => {
     const selectedSound = e.target.value;
     
@@ -83,6 +77,11 @@ const Page = () => {
         setSelectedSounds((prev) => [selectedSound, ...prev]);
       }
     }
+  };
+
+  const stopAllSounds = () => {
+    Object.values(playersRef.current).forEach((player) => player.stop());
+    setSelectedSounds([]);
   };
 
   const startRecording = async () => {
@@ -120,16 +119,7 @@ const Page = () => {
         }
         <div className={styles.soundsContainer}>
           {sounds.map((sound) => (
-            <button
-              key={sound}
-              type="button"
-              className={`${styles.sound} ${selectedSounds.includes(sound) ? styles.clicked : ''}`}
-              value={sound}
-              onClick={handleClick}
-              disabled={!isReady}
-            >
-              {isReady ? sound : <Image className={styles.loader} src={brazilLoader} alt="Brazilian flag spinner loader"/>}
-            </button>
+            <Sound sound={sound} selectedSounds={selectedSounds} onClick={handleClick} isReady={isReady}/>
           ))}
         </div>
         {recordedAudio ? (
