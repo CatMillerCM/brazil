@@ -6,7 +6,7 @@ import { Titles } from '@/components/atoms/titles';
 import { RecordButtons } from '@/components/molecules/record-buttons';
 import { Sounds } from '@/components/organisms/sounds';
 import { Audio } from '@/components/atoms/audio';
-import { ResultActionButtons } from '@/components/molecules/result-action-buttons';
+import { DownloadButton } from '@/components/molecules/result-action-buttons';
 import { Dancers } from '@/components/molecules/dancers';
 import styles from './page.module.css';
 
@@ -37,6 +37,7 @@ const Page = () => {
           setSelectedSounds={setSelectedSounds}
           playersRef={playersRef}
           gainRef={gainRef}
+          isReady={isReady}
         />
         <Sounds
           isRecording={isRecording}
@@ -47,7 +48,7 @@ const Page = () => {
           isReady={isReady}
         />
         <Audio recordedAudio={recordedAudio} />
-        <ResultActionButtons recordedAudio={recordedAudio} />
+        <DownloadButton recordedAudio={recordedAudio} />
       </div>
       <Dancers />
     </main>
