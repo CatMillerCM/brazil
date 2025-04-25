@@ -2,6 +2,8 @@
 
 import * as Tone from 'tone';
 import { useState, useRef, useEffect } from 'react';
+import { Titles } from '@/components/atoms/titles';
+import { RecordButtons } from '@/components/molecules/record-buttons';
 import { Sounds } from '@/components/organisms/sounds';
 import { ResultActionButtons } from '@/components/molecules/result-action-buttons';
 import { Dancers } from '@/components/molecules/dancers';
@@ -13,7 +15,6 @@ const Page = () => {
   const [recordedAudio, setRecordedAudio] = useState(null);
   const [isReady, setIsReady] = useState(false);
 
-  const recorderRef = useRef(null);
   const playersRef = useRef({});
   const gainRef = useRef(null);
 
@@ -74,42 +75,24 @@ const Page = () => {
     }
   };
 
-  const stopAllSounds = () => {
-    Object.values(playersRef.current).forEach((player) => player.stop());
-    setSelectedSounds([]);
-  };
-
-  const startRecording = async () => {
-    stopAllSounds();
-    await Tone.start();
-  
-    const recorder = new Tone.Recorder();
-    recorderRef.current = recorder;
-    gainRef.current.connect(recorder);
-  
-    recorder.start();
-    setIsRecording(true);
-  };
-  
-  const stopRecording = async () => {
-    stopAllSounds();
-    
-    const recording = await recorderRef.current.stop();
-    setIsRecording(false);
-    
-    setRecordedAudio(recording);
-  };
-
   return (
     <main className={styles.main}>
       <div className={styles.diamond}></div>
       <div className={styles.mainContent}>
         <Titles />
-        {isRecording ? 
-          <button type="button" className={styles.button} onClick={stopRecording}>Stop Recording</button> :
-          <button type="button" className={`${styles.button} ${styles.start}`} onClick={startRecording}>Start Recording</button>
-        }
-        <Sounds selectedSounds={selectedSounds} onClick={handleClick} isReady={isReady}/>
+        <RecordButtons
+          isRecording={isRecording}
+          setIsRecording={setIsRecording}
+          setRecordedAudio={setRecordedAudio}
+          setSelectedSounds={setSelectedSounds}
+          playersRef={playersRef}
+          gainRef={gainRef}
+        />
+        <Sounds
+          selectedSounds={selectedSounds}
+          onClick={handleClick}
+          isReady={isReady}
+        />
         {recordedAudio ? (
           <audio controls src={URL.createObjectURL(recordedAudio)} />
         ) :

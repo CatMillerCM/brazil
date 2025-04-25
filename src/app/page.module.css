@@ -28,17 +28,3 @@
   align-items: center;
   gap: 1rem;
 }
-
-.button {
-  background-color: var(--color-brazilian-green);
-  color: var(--color-white);
-  border: none;
-  font-weight: bold;
-  padding: 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.start {
-  background-color: var(--color-brazilian-blue);
-}

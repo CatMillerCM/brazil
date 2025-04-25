@@ -7,3 +7,7 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+.start {
+  background-color: var(--color-brazilian-blue);
+}
