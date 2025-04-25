@@ -23,58 +23,6 @@ const Page = () => {
     setIsReady(true);
   }, []);
 
-  const createPlayer = async (selectedSound) => {
-    const fileName = selectedSound.toLowerCase().replace(/ /g, '-') + '.wav';
-    const filePath = `/samples/${fileName}`;
-  
-    const player = new Tone.Player({
-      url: filePath,
-      loop: true,
-      autostart: false,
-    });
-    
-    await Tone.loaded();
-    player.connect(gainRef.current);
-    playersRef.current[selectedSound] = player;
-  
-    return player;
-  };
-  
-  const handleClick = async (e) => {
-    const selectedSound = e.target.value;
-    
-    let player = playersRef.current[selectedSound];
-    if (!player) {
-      player = await createPlayer(selectedSound);
-      playersRef.current[selectedSound] = player;
-    }
-
-    const isAlreadySelected = selectedSounds.includes(selectedSound);
-
-    if (!isRecording) {
-      if (isAlreadySelected) {
-        player.stop();
-        setSelectedSounds([]);
-      } else {
-        const previousSound = selectedSounds[0];
-        playersRef.current[previousSound]?.stop();
-  
-        player.start();
-        setSelectedSounds([selectedSound]);
-      }
-    }
-
-    if (isRecording) {
-      if (isAlreadySelected) {
-        player.stop();
-        setSelectedSounds((prev) => prev.filter((sound) => sound !== selectedSound));
-      } else {
-        player.start();
-        setSelectedSounds((prev) => [selectedSound, ...prev]);
-      }
-    }
-  };
-
   return (
     <main className={styles.main}>
       <div className={styles.diamond}></div>
@@ -89,8 +37,11 @@ const Page = () => {
           gainRef={gainRef}
         />
         <Sounds
+          isRecording={isRecording}
           selectedSounds={selectedSounds}
-          onClick={handleClick}
+          setSelectedSounds={setSelectedSounds}
+          playersRef={playersRef}
+          gainRef={gainRef}
           isReady={isReady}
         />
         {recordedAudio ? (
