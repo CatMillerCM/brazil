@@ -1,0 +1,26 @@
+.dancers {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.dancers img {
+  height: 17rem;
+  width: auto;
+  margin-left: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .dancers {
+    width: 65%;
+  }
+  
+  .dancers img {
+    height: 20rem;
+    margin-left: 2.5rem;
+  }
+}

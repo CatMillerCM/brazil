@@ -3,9 +3,10 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import * as Tone from 'tone';
-import { brazilLoader, dancer1, dancer2 } from '@/assets';
-import styles from './page.module.css';
+import { brazilLoader } from '@/assets';
 import { ResultActionButtons } from '@/components/molecules/result-action-buttons';
+import styles from './page.module.css';
+import { Dancers } from '@/components/molecules/dancers';
 
 const Page = () => {
   const [selectedSounds, setSelectedSounds] = useState([]);
@@ -138,10 +139,7 @@ const Page = () => {
         }
         <ResultActionButtons recordedAudio={recordedAudio} />
       </div>
-      <div className={styles.dancers}>
-        <Image src={dancer1} alt="Silhouette of a woman dancing wearing carnival attire" />
-        <Image src={dancer2} alt="Silhouette of a woman dancing wearing carnival attire" />
-      </div>
+      <Dancers />
     </main>
   );
 };
