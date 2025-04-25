@@ -1,0 +1,15 @@
+.soundsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  width: min-content;
+  justify-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .soundsContainer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}

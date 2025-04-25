@@ -5,7 +5,7 @@ import * as Tone from 'tone';
 import { ResultActionButtons } from '@/components/molecules/result-action-buttons';
 import styles from './page.module.css';
 import { Dancers } from '@/components/molecules/dancers';
-import { Sound } from '@/components/atoms/sound';
+import { Sounds } from '@/components/molecules/sounds';
 
 const Page = () => {
   const [selectedSounds, setSelectedSounds] = useState([]);
@@ -16,11 +16,6 @@ const Page = () => {
   const recorderRef = useRef(null);
   const playersRef = useRef({});
   const gainRef = useRef(null);
-
-  const sounds = [
-    'carioca 1', 'chocalho de platinela 1', 'drums 1', 'pandeiro 1', 'pandeiro 2', 'tantan 1',
-    'carioca 1', 'chocalho de platinela 1', 'drums 1', 'pandeiro 1', 'pandeiro 2', 'tantan 1',
-  ];
 
   useEffect(() => {
     gainRef.current = new Tone.Gain().toDestination();
@@ -117,11 +112,7 @@ const Page = () => {
           <button type="button" className={styles.button} onClick={stopRecording}>Stop Recording</button> :
           <button type="button" className={`${styles.button} ${styles.start}`} onClick={startRecording}>Start Recording</button>
         }
-        <div className={styles.soundsContainer}>
-          {sounds.map((sound) => (
-            <Sound sound={sound} selectedSounds={selectedSounds} onClick={handleClick} isReady={isReady}/>
-          ))}
-        </div>
+        <Sounds selectedSounds={selectedSounds} onClick={handleClick} isReady={isReady}/>
         {recordedAudio ? (
           <audio controls src={URL.createObjectURL(recordedAudio)} />
         ) :
