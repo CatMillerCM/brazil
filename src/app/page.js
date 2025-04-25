@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Titles } from '@/components/atoms/titles';
 import { RecordButtons } from '@/components/molecules/record-buttons';
 import { Sounds } from '@/components/organisms/sounds';
+import { Audio } from '@/components/atoms/audio';
 import { ResultActionButtons } from '@/components/molecules/result-action-buttons';
 import { Dancers } from '@/components/molecules/dancers';
 import styles from './page.module.css';
@@ -44,11 +45,7 @@ const Page = () => {
           gainRef={gainRef}
           isReady={isReady}
         />
-        {recordedAudio ? (
-          <audio controls src={URL.createObjectURL(recordedAudio)} />
-        ) :
-          <div className={styles.noAudio}></div>
-        }
+        <Audio recordedAudio={recordedAudio} />
         <ResultActionButtons recordedAudio={recordedAudio} />
       </div>
       <Dancers />

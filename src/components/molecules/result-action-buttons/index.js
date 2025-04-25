@@ -39,7 +39,7 @@ const ResultActionButtons = ({ recordedAudio }) => {
 };
 
 ResultActionButtons.propTypes = {
-  recordedAudio: PropTypes.string.isRequired,
+  recordedAudio: PropTypes.instanceOf(Blob).isRequired
 };
 
 export { ResultActionButtons };
