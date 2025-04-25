@@ -104,10 +104,7 @@ const Page = () => {
     <main className={styles.main}>
       <div className={styles.diamond}></div>
       <div className={styles.mainContent}>
-        <div className={styles.titles}>
-          <h1>Create my Samba mix!</h1>
-          <h3>Start by trying out the sounds and then start recording when you're ready!</h3>
-        </div>
+        <Titles />
         {isRecording ? 
           <button type="button" className={styles.button} onClick={stopRecording}>Stop Recording</button> :
           <button type="button" className={`${styles.button} ${styles.start}`} onClick={startRecording}>Start Recording</button>
