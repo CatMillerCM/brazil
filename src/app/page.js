@@ -32,6 +32,7 @@ const Page = () => {
         <RecordButtons
           isRecording={isRecording}
           setIsRecording={setIsRecording}
+          recordedAudio={recordedAudio}
           setRecordedAudio={setRecordedAudio}
           setSelectedSounds={setSelectedSounds}
           playersRef={playersRef}

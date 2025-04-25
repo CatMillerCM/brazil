@@ -14,7 +14,7 @@ const Button = ({ onClick, disabled = false, label }) => {
 
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
-  disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
 };
 

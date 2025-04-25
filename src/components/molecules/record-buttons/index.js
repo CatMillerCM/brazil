@@ -6,6 +6,7 @@ import { Button } from '@/components/atoms/button';
 const RecordButtons = ({
   isRecording,
   setIsRecording,
+  recordedAudio,
   setRecordedAudio,
   setSelectedSounds,
   playersRef,
@@ -17,6 +18,10 @@ const RecordButtons = ({
     Object.values(playersRef.current).forEach((player) => player.stop());
     setSelectedSounds([]);
   };
+
+  const startAgain = () => {
+    setRecordedAudio(null);
+  }
 
   const startRecording = async () => {
     stopAllSounds();
@@ -39,15 +44,18 @@ const RecordButtons = ({
   };
 
   return (
-    isRecording ? 
-      <Button onClick={stopRecording} label="Stop Recording" /> :
-      <Button onClick={startRecording} label="Start Recording" />    
+    recordedAudio ?
+    <Button onClick={startAgain} label="Start Again" /> :
+      isRecording ? 
+        <Button onClick={stopRecording} label="Stop Recording" /> :
+        <Button onClick={startRecording} label="Start Recording" />    
   )
 };
 
 RecordButtons.propTypes = {
   isRecording: PropTypes.bool.isRequired,
   setIsRecording: PropTypes.func.isRequired,
+  recordedAudio: PropTypes.instanceOf(Blob),
   setRecordedAudio: PropTypes.func.isRequired,
   setSelectedSounds: PropTypes.func.isRequired,
   playersRef: PropTypes.object.isRequired,
