@@ -6,6 +6,7 @@
   width: 100%;
   justify-content: space-between;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .dancers img {
