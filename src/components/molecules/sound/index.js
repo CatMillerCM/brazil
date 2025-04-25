@@ -66,7 +66,6 @@ const Sound = ({
 
   return (
     <button
-      key={sound}
       type="button"
       className={`${styles.sound} ${selectedSounds.includes(sound) ? styles.clicked : ''}`}
       value={sound}
