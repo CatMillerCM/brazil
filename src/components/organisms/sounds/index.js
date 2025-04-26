@@ -17,13 +17,12 @@ const Sounds = ({
     'Chocalho de Platinela',
     'Cuica',
     'Ganza',
-    'Pandeiro',
     'Repinique',
     'Surdo',
     'Tamborim',
     'Tantan',
     'Trumpet',
-    // 'Whistle',
+    'Whistle',
   ];
   
   return (
