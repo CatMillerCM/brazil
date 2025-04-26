@@ -10,16 +10,16 @@ body {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
-  font-family: var(--font-monserrat);
-}
-
-h1, h4 {
-  margin: 0.25rem;
+  font-family: var(--font-nunito);
 }
 
 h1 {
-  font-family: var(--font-title);
-  font-size: 3rem;
+  margin: -2rem;
+  font-family: var(--font-charmonman);
+  font-size: 4rem;
+  font-weight: 700;
 }
 
-
+h4 {
+  margin: 0;
+}
