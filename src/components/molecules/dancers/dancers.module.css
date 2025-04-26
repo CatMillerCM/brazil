@@ -1,27 +1,31 @@
-.dancers {
-  display: flex;
+.dancer {
   position: absolute;
-  z-index: 1;
   bottom: 0;
-  width: 100%;
-  justify-content: space-between;
+  z-index: 1;
+  height: 15rem;
+  width: auto;
   overflow: hidden;
   pointer-events: none;
 }
 
-.dancers img {
-  height: 17rem;
-  width: auto;
-  margin-left: 1rem;
+.left {
+  left: -4dvw;
+}
+
+.right {
+  right: -6dvw;
 }
 
 @media screen and (min-width: 768px) {
-  .dancers {
-    width: 65%;
+  .dancer {
+    height: 20rem;
+  }
+
+  .left {
+    left: 22dvw;
   }
   
-  .dancers img {
-    height: 20rem;
-    margin-left: 2.5rem;
+  .right {
+    right: 20dvw;
   }
 }

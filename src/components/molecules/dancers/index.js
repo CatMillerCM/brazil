@@ -4,9 +4,9 @@ import styles from './dancers.module.css';
 
 const Dancers = () => {
   return (
-    <div className={styles.dancers}>
-      <Image src={dancer1} alt="Silhouette of a woman dancing wearing carnival attire" />
-      <Image src={dancer2} alt="Silhouette of a woman dancing wearing carnival attire" />
+    <div>
+      <Image className={`${styles.dancer} ${styles.left}`} src={dancer1} alt="Silhouette of a woman dancing wearing carnival attire" />
+      <Image className={`${styles.dancer} ${styles.right}`} src={dancer2} alt="Silhouette of a woman dancing wearing carnival attire" />
     </div>
   )
 };
