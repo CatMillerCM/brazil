@@ -1,4 +1,4 @@
-# SambaStack!
+# SambaStack
 
 Welcome to Brazil's project: SambaStack!
 
