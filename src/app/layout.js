@@ -1,4 +1,5 @@
 import { Nunito, Charmonman} from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 export const nunito = Nunito({
@@ -14,8 +15,8 @@ export const charmonman = Charmonman({
 });
 
 export const metadata = {
-  title: "",
-  description: "",
+  title: "SambaStack",
+  description: "A NextJS app that allows you to create your own Brazilian beat using traditional instrument samples.",
   icons: {
     icon: '/favicon.ico'
   },
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
       <body className={`${nunito.variable} ${charmonman.variable}`}>
         {children}
       </body>
+      <GoogleAnalytics gaId="G-?????????" />
     </html>
   );
 };
