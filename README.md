@@ -1,68 +1,15 @@
-# Using this template
+# SambaStack!
 
-## Creating repo
+Welcome to Brazil's project: SambaStack!
 
-- Clone this repo from github or local files
-- Create a new repo on github
-- Point cloned repo to new repo using: `git remote set-url origin [REPO URL]`
-- Push up changes: `git push -u origin main`
-- If the error 'fatal: the remote end hung up unexpectedly' arises, use `git config http.postBuffer 524288000` and try push again
-- Delete test files if not testing
-- Delete this part of readme
-- npm i
+I was lucky enough to be in Brazil for the world famous carnival celebrations, and it did not disappoint! Full of dancing, colours, and, of course, samba!
 
-## Creating a new component
+Inspired by all of the traditional Brazilian instruments that come together to make an iconic and energetic samba song, I created this app so that you could have a go at bringing a beat to life too. I've never worked with music on apps before, so this was a chance to challenge myself and learn about how it can be incorporated into a NextJS project.
 
-```
-import PropTypes from 'prop-types';
-import Image from 'next/image';
-import styles from './component.module.css';
+I used [Freesound](https://freesound.org/) to find and download my sample sounds, and [tone.js](https://tonejs.github.io/) in the code to handle playing and recording them.
 
-const Component = ({ aProp }) => {
-  return (
-    <div className={styles.image}>
-      <Image
-        src={aProp.src}
-        alt={aProp.alt}
-        layout="fill"
-        objectFit="cover"
-        unoptimized
-      />
-    </div>
-  )
-};
+Please enjoy listening to the traditional instruments used in Brazilian carnival music, and have a go at recording your own mix!
 
-Component.propTypes = {
-  aProp: PropTypes.string.isRequired,
-};
+Hosted independently [here](https://brazil.cat-miller.com/).
 
-export { Component };
-```
-
-### Hosting
-
-Follow guide at https://callumeddisford.medium.com/deploying-a-next-js-14-app-to-google-cloud-run-c193895f5bd4
-
-# COUNTRY PROJECT
-
-// TO DO - update readme
-
-Welcome to [COUNTRY NAMES]'s project: [PROJECT NAME].
-
-[SPIEL]
-
-## Getting Started
-
-First, install all the dependencies using
-
-```bash
-npm i
-```
-
-Then run the development server:
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A full write up, with further information about the project, can be found on [What's My Country Code - Brazil](https://whatsmycountrycode.cat-miller.com/brazil).
