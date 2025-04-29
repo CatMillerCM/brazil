@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
       <body className={`${nunito.variable} ${charmonman.variable}`}>
         {children}
       </body>
-      <GoogleAnalytics gaId="G-?????????" />
+      <GoogleAnalytics gaId="G-SBJVBLWGVP" />
     </html>
   );
 };

@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@next/third-parties": "^15.3.1",
     "framer-motion": "^11.11.9",
     "next": "^14.2.13",
     "next-transition-router": "^0.2.1",
