@@ -5,8 +5,8 @@
   align-items: center;
   text-align: center;
   background-color: var(--color-brazilian-green);
-  height: 100dvh;
-  margin-bottom: 1rem;
+  min-height: 100dvh;
+  padding-bottom: 1rem;
 }
 
 .diamond {
