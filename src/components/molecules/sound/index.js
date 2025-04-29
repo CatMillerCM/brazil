@@ -30,6 +30,7 @@ const Sound = ({
   };
   
   const handleClick = async (e) => {
+    await Tone.start();
     const selectedSound = e.target.value;
     
     let player = playersRef.current[selectedSound];
