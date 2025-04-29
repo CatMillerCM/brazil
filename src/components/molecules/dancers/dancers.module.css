@@ -9,11 +9,11 @@
 }
 
 .left {
-  left: -4dvw;
+  left: -10dvw;
 }
 
 .right {
-  right: -6dvw;
+  right: -15dvw;
 }
 
 @media screen and (min-width: 768px) {
