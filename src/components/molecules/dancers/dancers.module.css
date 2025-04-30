@@ -8,12 +8,40 @@
   pointer-events: none;
 }
 
-.left {
-  left: -10dvw;
+.leftStart {
+  left: 6dvw;
 }
 
-.right {
-  right: -15dvw;
+.leftReady {
+  animation: glideLeft 1s ease-in-out forwards;
+}
+
+.rightStart {
+  right: 0;
+}
+
+.rightReady {
+  animation: glideRight 1s ease-in-out forwards;
+}
+
+@keyframes glideLeft {
+  0% {
+    left: 6dvw;
+  }
+
+  100% {
+    left: -10dvw;
+  }
+}
+
+@keyframes glideRight {
+  0% {
+    right: 0;
+  }
+
+  100% {
+    right: -15dvw;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -21,11 +49,13 @@
     height: 20rem;
   }
 
-  .left {
+  .leftReady, .leftStart {
     left: 22dvw;
+    animation: none;
   }
   
-  .right {
+  .rightReady, .rightStart {
     right: 20dvw;
+    animation: none;
   }
 }

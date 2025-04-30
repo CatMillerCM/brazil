@@ -1,6 +1,5 @@
 'use client';
 
-import * as Tone from 'tone';
 import { useState, useRef } from 'react';
 import { Titles } from '@/components/atoms/titles';
 import { RecordButtons } from '@/components/molecules/record-buttons';
@@ -51,7 +50,7 @@ const Page = () => {
             <Start gainRef={gainRef} setIsReady={setIsReady}/>
           </div>
         )}
-      <Dancers />
+      <Dancers isReady={isReady} />
     </main>
   );
 };
