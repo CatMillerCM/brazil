@@ -1,5 +1,8 @@
-.none {
-  opacity: 0.5;
+.audio {
   max-width: 16rem;
   max-height: 2rem;
+}
+
+.none {
+  opacity: 0.5;
 }

@@ -3,7 +3,11 @@ import styles from './audio.module.css';
 
 const Audio = ({ recordedAudio }) => {
   return (
-    <audio className={!recordedAudio ? styles.none : ''} controls src={recordedAudio ? URL.createObjectURL(recordedAudio) : ''} />
+    recordedAudio ? (
+      <audio className={styles.audio} controls src={URL.createObjectURL(recordedAudio)} />
+    ) : (
+      <audio className={styles.none} controls disabled />
+    )
   )
 };
 
