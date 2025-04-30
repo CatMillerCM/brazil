@@ -10,6 +10,10 @@
   font-family: var(--font-nunito);
 }
 
+.sound:disabled {
+  cursor: auto;
+}
+
 .clicked {
   background-color: var(--color-brazilian-blue);
   color: var(--color-white);

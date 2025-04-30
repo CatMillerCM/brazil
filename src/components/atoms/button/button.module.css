@@ -9,6 +9,10 @@
   font-family: var(--font-nunito);
 }
 
+.button:disabled {
+  cursor: auto;
+}
+
 .stop, .download {
   background-color: var(--color-brazilian-blue);
 }

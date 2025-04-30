@@ -68,8 +68,9 @@ const Sound = ({
       className={`${styles.sound} ${selectedSounds.includes(sound) ? styles.clicked : ''}`}
       value={sound}
       onClick={handleClick}
+      disabled={!sound}
     >
-      {sound}
+      {sound ? sound : '...'}
     </button>
   )
 };
