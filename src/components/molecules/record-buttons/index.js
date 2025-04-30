@@ -10,8 +10,7 @@ const RecordButtons = ({
   setRecordedAudio,
   setSelectedSounds,
   playersRef,
-  gainRef,
-  isReady
+  gainRef
 }) => {
   const recorderRef = useRef(null);
 
@@ -49,7 +48,7 @@ const RecordButtons = ({
     <Button onClick={startAgain} label="Start Again" /> :
       isRecording ? 
         <Button className="stop" onClick={stopRecording} label="Stop Recording" /> :
-        <Button onClick={startRecording} label="Start Recording" disabled={!isReady}/>    
+        <Button onClick={startRecording} label="Start Recording"/>    
   )
 };
 
@@ -60,8 +59,7 @@ RecordButtons.propTypes = {
   setRecordedAudio: PropTypes.func.isRequired,
   setSelectedSounds: PropTypes.func.isRequired,
   playersRef: PropTypes.object.isRequired,
-  gainRef: PropTypes.object.isRequired,
-  isReady: PropTypes.bool.isRequired
+  gainRef: PropTypes.object.isRequired
 };
 
 export { RecordButtons };

@@ -34,7 +34,6 @@ const Page = () => {
             setSelectedSounds={setSelectedSounds}
             playersRef={playersRef}
             gainRef={gainRef}
-            isReady={isReady}
           />
           <Sounds
             isRecording={isRecording}
@@ -42,7 +41,6 @@ const Page = () => {
             setSelectedSounds={setSelectedSounds}
             playersRef={playersRef}
             gainRef={gainRef}
-            isReady={isReady}
           />
           <Audio recordedAudio={recordedAudio} />
           <DownloadButton recordedAudio={recordedAudio} />

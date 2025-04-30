@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import * as Tone from 'tone';
-import { Loader } from '@/components/atoms/loader';
 import styles from './sound.module.css';
 
 const Sound = ({
@@ -9,8 +8,7 @@ const Sound = ({
   selectedSounds,
   setSelectedSounds,
   playersRef,
-  gainRef,
-  isReady,
+  gainRef
 }) => {
   const createPlayer = async (selectedSound) => {
     const fileName = selectedSound.toLowerCase().replace(/ /g, '-') + '.wav';
@@ -71,9 +69,8 @@ const Sound = ({
       className={`${styles.sound} ${selectedSounds.includes(sound) ? styles.clicked : ''}`}
       value={sound}
       onClick={handleClick}
-      disabled={!isReady}
     >
-      {isReady ? sound : <Loader />}
+      {sound}
     </button>
   )
 };
@@ -84,8 +81,7 @@ Sound.propTypes = {
   selectedSounds: PropTypes.array.isRequired,
   setSelectedSounds: PropTypes.func.isRequired,
   playersRef: PropTypes.object.isRequired,
-  gainRef: PropTypes.object.isRequired,
-  isReady: PropTypes.bool.isRequired
+  gainRef: PropTypes.object.isRequired
 };
 
 export { Sound };
