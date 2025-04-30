@@ -25,7 +25,6 @@ const RecordButtons = ({
 
   const startRecording = async () => {
     stopAllSounds();
-    await Tone.start();
   
     const recorder = new Tone.Recorder();
     recorderRef.current = recorder;

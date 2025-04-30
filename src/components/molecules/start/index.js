@@ -3,7 +3,8 @@ import * as Tone from 'tone';
 import { Button } from '@/components/atoms/button';
 
 const Start = ({ gainRef, setIsReady }) => {
-  const handleStart = () => {
+  const handleStart = async () => {
+    await Tone.start();
     gainRef.current = new Tone.Gain().toDestination();
     setIsReady(true);
   };
