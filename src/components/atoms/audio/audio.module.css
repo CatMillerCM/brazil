@@ -1,4 +1,4 @@
-.audio {
+.audio, .none {
   max-width: 16rem;
   max-height: 2rem;
 }
