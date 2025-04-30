@@ -8,8 +8,7 @@ const Sounds = ({
   selectedSounds,
   setSelectedSounds,
   soundsReady,
-  playersRef,
-  gainRef
+  playersRef
 }) => {
   
   return (
@@ -22,7 +21,6 @@ const Sounds = ({
           selectedSounds={selectedSounds}
           setSelectedSounds={setSelectedSounds}
           playersRef={playersRef}
-          gainRef={gainRef}
         />
       ))}
   </div>
@@ -34,8 +32,7 @@ Sounds.propTypes = {
   selectedSounds: PropTypes.array.isRequired,
   setSelectedSounds: PropTypes.func.isRequired,
   soundsReady: PropTypes.bool.isRequired,
-  playersRef: PropTypes.object.isRequired,
-  gainRef: PropTypes.object.isRequired
+  playersRef: PropTypes.object.isRequired
 };
 
 export { Sounds };

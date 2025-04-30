@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import * as Tone from 'tone';
 import { Loader } from '@/components/atoms/loader';
 import styles from './sound.module.css';
 
@@ -8,8 +7,7 @@ const Sound = ({
   isRecording,
   selectedSounds,
   setSelectedSounds,
-  playersRef,
-  gainRef
+  playersRef
 }) => {
   const handleClick = async (e) => {
     const selectedSound = e.target.value;
@@ -59,8 +57,7 @@ Sound.propTypes = {
   isRecording: PropTypes.bool.isRequired,
   selectedSounds: PropTypes.array.isRequired,
   setSelectedSounds: PropTypes.func.isRequired,
-  playersRef: PropTypes.object.isRequired,
-  gainRef: PropTypes.object.isRequired
+  playersRef: PropTypes.object.isRequired
 };
 
 export { Sound };

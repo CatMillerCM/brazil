@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { Titles } from '@/components/atoms/titles';
 import { RecordButtons } from '@/components/molecules/record-buttons';
 import { Sounds } from '@/components/organisms/sounds';
@@ -42,7 +42,6 @@ const Page = () => {
             setSelectedSounds={setSelectedSounds}
             soundsReady={soundsReady}
             playersRef={playersRef}
-            gainRef={gainRef}
           />
           <Audio recordedAudio={recordedAudio} />
           <DownloadButton recordedAudio={recordedAudio} />
